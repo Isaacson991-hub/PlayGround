@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#07100f">
+  <title>Eclipse — O Último Horizonte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game" aria-label="Mundo 3D de Eclipse"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✳</span><span>ECLIPSE <small>O ÚLTIMO HORIZONTE</small></span></div>
+      <div class="region"><span class="region-dot"></span><span>REGIÃO 01 <b>·</b> FLORESTA ESQUECIDA</span></div>
+      <button class="icon-btn" id="sound-btn" title="Som">♫</button>
+      <button class="icon-btn" id="pause-btn" title="Pausar">Ⅱ</button>
+    </header>
+    <section class="quest-card" id="quest-card">
+      <div class="eyebrow"><span class="quest-symbol">✦</span> MISSÃO PRINCIPAL <span class="quest-line"></span></div>
+      <h1>O despertar</h1>
+      <p id="quest-copy">Encontre os fragmentos de memória na floresta.</p>
+      <div class="quest-progress"><span id="quest-count">0 / 3 fragmentos</span><div class="progress-track"><i id="quest-bar"></i></div></div>
+    </section>
+    <section class="player-panel">
+      <div class="player-avatar"><span>✧</span><i></i></div>
+      <div class="player-info"><div class="player-name">VIAJANTE <span>NÍVEL 01</span></div>
+        <div class="stat-row"><span class="stat-icon heart">♥</span><div class="meter"><i id="health-fill"></i></div><b id="health-text">100</b></div>
+        <div class="stat-row"><span class="stat-icon energy">✦</span><div class="meter energy-meter"><i id="energy-fill"></i></div><b id="energy-text">100</b></div>
+      </div>
+    </section>
+    <aside class="objective-tip" id="objective-tip"><span class="tip-icon">⌖</span><span>Um sinal pulsa na mata <b>· siga os fragmentos</b></span></aside>
+    <div class="center-message" id="center-message"></div>
+    <div class="combat-feed" id="combat-feed"></div>
+    <div class="bottom-hud">
+      <div class="controls-hint"><span class="key">W A S D</span><span>MOVER</span><span class="key">ESPAÇO</span><span>PULAR</span></div>
+      <div class="ability-bar">
+        <div class="ability-label">PODER DO ECLIPSE <span>Q</span></div>
+        <button class="ability active" id="ability-btn" title="Pulso do Eclipse · Q"><span class="ability-glyph">✧</span><b>Q</b></button>
+        <button class="ability locked" title="Gravidade · bloqueado"><span>◉</span><b>2</b></button>
+        <button class="ability locked" title="Tempo · bloqueado"><span>◷</span><b>3</b></button>
+        <button class="ability locked" title="Dimensão · bloqueado"><span>◇</span><b>4</b></button>
+      </div>
+      <div class="combat-hint"><span class="key">CLIQUE</span> ATACAR <span class="key">SHIFT</span> ESQUIVAR</div>
+    </div>
+    <div class="mobile-controls" aria-label="Controles de toque">
+      <div class="joystick" id="joystick"><span></span></div>
+      <div class="touch-actions"><button id="touch-dodge">↗</button><button id="touch-jump">↑</button><button id="touch-attack">⚔</button><button id="touch-power">✧</button></div>
+    </div>
+    <div class="intro" id="intro">
+      <div class="intro-card"><div class="intro-kicker">UMA JORNADA ALÉM DA REALIDADE</div><div class="intro-logo">ECLIPSE<span>O ÚLTIMO HORIZONTE</span></div>
+        <p>O mundo se partiu. Sua memória também.<br>Encontre os fragmentos — descubra quem você era.</p>
+        <button id="start-btn" class="start-btn">INICIAR JORNADA <span>→</span></button>
+        <div class="intro-foot">WASD MOVER <i>·</i> CLIQUE ATACAR <i>·</i> Q PULSO DO ECLIPSE</div>
+      </div>
+    </div>
+    <div class="pause-screen hidden" id="pause-screen"><div><div class="pause-mark">Ⅱ</div><h2>PAUSADO</h2><p>A floresta aguarda.</p><button id="resume-btn" class="start-btn">CONTINUAR <span>→</span></button></div></div>
+    <div class="toast" id="toast"></div>
+    <div class="save-mark" id="save-mark">✦ PROGRESSO SALVO</div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
