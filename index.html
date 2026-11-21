@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"><meta name="theme-color" content="#090d17">
+<title>UMBRA — Ecos do Véu</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="game-shell">
+  <canvas id="game" width="960" height="540" aria-label="Jogo Umbra"></canvas>
+  <div id="hud" class="hidden">
+    <div class="hud-left"><div class="portrait">✦</div><div class="bars"><div class="bar hp"><span id="hp-fill"></span></div><div class="bar mp"><span id="mp-fill"></span></div><div class="level-line"><b id="level">NÍVEL 1</b><span id="xp-label">0 / 40 XP</span></div></div></div>
+    <div class="region-tag"><span class="tiny-diamond">◆</span><span id="region-name">FLORESTA DO VÉU</span><small id="objective">ENCONTRE OS ECOS</small></div>
+    <div class="hud-right"><div class="relic-count">✧ <span id="relics">0</span><small>ECOS</small></div><button id="inventory-btn" class="icon-btn" aria-label="Inventário">▤</button><button id="pause-btn" class="icon-btn" aria-label="Pausar">Ⅱ</button></div>
+    <div id="bossbar" class="bossbar hidden"><div>O DEVORADOR <span>GUARDIÃO DO VÉU</span></div><div class="bar"><span id="boss-fill"></span></div></div>
+    <div class="hint" id="hint"></div><div class="toast" id="toast"></div>
+    <div class="touch-controls" id="touch-controls"><div class="move-pad"><button data-action="left">◀</button><button data-action="right">▶</button></div><div class="action-pad"><button data-action="jump" class="jump">PULAR</button><button data-action="attack" class="attack">✦</button><button data-action="dash" class="dash">↝</button><button data-action="special" class="special">✧</button><button data-action="interact" class="interact">E</button></div></div>
+  </div>
+  <section id="title-screen" class="screen">
+    <div class="title-copy"><div class="eyebrow"><i></i> UMA AVENTURA DE PIXEL ART <i></i></div><h1>UMBRA</h1><div class="subtitle">ECOS DO VÉU</div><p>Quando o último sino silenciou,<br>as sombras começaram a lembrar.</p><div class="title-actions"><button class="primary" id="new-game">INICIAR JORNADA <span>→</span></button><button id="continue-game" class="secondary hidden">CONTINUAR</button></div><div class="title-foot">← → MOVER &nbsp;·&nbsp; ESPAÇO PULAR &nbsp;·&nbsp; Z ATACAR &nbsp;·&nbsp; X HABILIDADE</div></div>
+    <div class="title-mark">◈<small>01 — O DESPERTAR</small></div>
+  </section>
+  <section id="pause-screen" class="screen panel-screen hidden"><div class="panel"><div class="eyebrow">A JORNADA ESPERA</div><h2>PAUSADO</h2><button class="primary" id="resume">VOLTAR À JORNADA <span>→</span></button><button class="secondary" id="open-inventory">INVENTÁRIO</button><button class="secondary" id="settings-btn">CONFIGURAÇÕES</button><button class="text-btn" id="to-title">VOLTAR AO MENU</button><div class="key-note">PROGRESSO SALVO AUTOMATICAMENTE</div></div></section>
+  <section id="inventory-screen" class="screen panel-screen hidden"><div class="panel inventory-panel"><button class="close-btn" id="close-inventory">×</button><div class="eyebrow">O QUE RESTOU DO MUNDO</div><h2>INVENTÁRIO</h2><div class="inventory-grid"><div class="item-card"><b>✧</b><strong id="inv-echoes">0</strong><span>ECOS ANTIGOS</span></div><div class="item-card"><b>♥</b><strong id="inv-potions">0</strong><span>ERVAS DE CURA</span></div><div class="item-card"><b>◇</b><strong id="inv-seals">0 / 3</strong><span>SELOS DO VÉU</span></div><div class="item-card"><b>⚔</b><strong id="inv-kills">0</strong><span>SOMBRAS VENCIDAS</span></div></div><div class="lore-card"><span>FRAGMENTO DE MEMÓRIA</span><p id="lore-text">“A floresta não esquece aqueles que caminham em silêncio.”</p></div><div class="key-note">I / TAB FECHAR &nbsp;·&nbsp; H USAR ERVA DE CURA</div></div></section>
+  <section id="dialog-screen" class="dialog hidden"><div class="dialog-box"><div id="dialog-speaker">VOZ DO VÉU</div><p id="dialog-text"></p><button id="dialog-next">CONTINUAR <span>→</span></button></div></section>
+  <section id="end-screen" class="screen panel-screen hidden"><div class="panel"><div class="eyebrow" id="end-eyebrow">O VÉU SE FECHA</div><h2 id="end-title">FIM DA JORNADA</h2><p id="end-copy"></p><button class="primary" id="restart">JOGAR NOVAMENTE <span>→</span></button><button class="text-btn" id="end-menu">MENU PRINCIPAL</button></div></section>
+  <div class="scanlines" aria-hidden="true"></div>
+</main>
+<script src="game.js"></script>
+</body></html>
